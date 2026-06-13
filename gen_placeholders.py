@@ -17,6 +17,23 @@ DARK_BG = "#0e1a14"
 DARK_BG2 = "#16291f"
  
  
+def _rasterize_to_jpg(svg_bytes, jpg_path):
+    """Render SVG bytes to a JPEG file. Requires rsvg-convert + Pillow.
+    Returns True on success, False if the tools are unavailable."""
+    import subprocess
+    from io import BytesIO
+    try:
+        from PIL import Image
+        png = subprocess.run(
+            ["rsvg-convert", "-b", "white"],
+            input=svg_bytes, capture_output=True, check=True,
+        ).stdout
+        Image.open(BytesIO(png)).convert("RGB").save(jpg_path, "JPEG", quality=88)
+        return True
+    except (OSError, subprocess.CalledProcessError):
+        return False
+
+
 def svg(name, label, w=1200, h=800, dark=False, badge=None):
     bg1 = DARK_BG if dark else LIGHT_BG
     bg2 = DARK_BG2 if dark else LIGHT_BG2
@@ -75,18 +92,28 @@ def svg(name, label, w=1200, h=800, dark=False, badge=None):
             f'font-size="26" font-weight="800" fill="#ffffff">{badge}</text>'
         )
     parts.append("</svg>")
+    data = "\n".join(parts)
+    if name.endswith(".jpg"):
+        jpg_path = os.path.join(OUT, name)
+        if not _rasterize_to_jpg(data.encode("utf-8"), jpg_path):
+            # Fallback: keep a valid placeholder even without rsvg-convert/Pillow.
+            svg_path = os.path.splitext(jpg_path)[0] + ".svg"
+            with open(svg_path, "w", encoding="utf-8") as f:
+                f.write(data)
+            print(f"warning: could not rasterize {name}; wrote {os.path.basename(svg_path)} instead")
+        return
     with open(os.path.join(OUT, name), "w", encoding="utf-8") as f:
-        f.write("\n".join(parts))
+        f.write(data)
  
  
-svg("hero-burovaya-mashina.svg", "Подземная буровая машина", 1400, 1000, dark=True)
-svg("proizvodstvennaya-baza.svg", "Производственная база")
+svg("hero-burovaya-mashina.jpg", "Подземная буровая машина", 1400, 1000, dark=True)
+svg("proizvodstvennaya-baza.jpg", "Производственная база")
 svg("lokalizaciya-strel.svg", "Локализация стрел Troidon 66")
-svg("vosstanovlenie-strel.svg", "Восстановление стрел")
-svg("proizvodstvo-komplektuyushih.svg", "Производство комплектующих")
-svg("remont-gidrocilindrov.svg", "Ремонт гидроцилиндров")
-svg("ispytaniya-gidrocilindrov.svg", "Испытания на маслостанции")
-svg("okrasochnaya-kamera.svg", "Окрасочная камера")
+svg("vosstanovlenie-strel.jpg", "Восстановление стрел")
+svg("proizvodstvo-komplektuyushih.jpg", "Производство комплектующих")
+svg("remont-gidrocilindrov.jpg", "Ремонт гидроцилиндров")
+svg("ispytaniya-gidrocilindrov.jpg", "Испытания на маслостанции")
+svg("okrasochnaya-kamera.jpg", "Окрасочная камера")
  
 projects = [
     "proekt-1-strela-sandvik-dd2711",
