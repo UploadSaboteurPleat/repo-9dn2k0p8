@@ -1,0 +1,2123 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ООО «САМРАУ» — Капитальный ремонт подземных буровых машин и производство узлов</title>
+    <meta
+      name="description"
+      content="ООО «САМРАУ» (г. Учалы) — капитальный ремонт подземных буровых машин, восстановление стрел, ремонт гидроцилиндров, изготовление узлов и комплектующих с поэтапным контролем качества."
+    />
+    <link rel="icon" type="image/svg+xml" href="images/logo-samrau.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --green: #00682b;
+        --green-bright: #00d56f;
+        --green-soft: #a6ffc8;
+        --bg: #ffffff;
+        --bg-soft: #f4f7f5;
+        --bg-soft-2: #eef2f0;
+        --ink: #16211b;
+        --graphite: #2c3a33;
+        --muted: #5f6d65;
+        --line: #e4eae6;
+        --radius: 18px;
+        --shadow-sm: 0 1px 2px rgba(16, 40, 28, 0.06), 0 4px 16px rgba(16, 40, 28, 0.05);
+        --shadow-md: 0 10px 30px rgba(16, 40, 28, 0.08);
+        --shadow-lg: 0 24px 60px rgba(16, 40, 28, 0.12);
+        --maxw: 1240px;
+      }
+ 
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+ 
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 92px;
+      }
+ 
+      html {
+        background: radial-gradient(circle at 50% 0%, #fafbfb 0%, #eef2f0 100%);
+      }
+      body {
+        font-family: 'Inter', system-ui, sans-serif;
+        color: var(--ink);
+        background: transparent;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+ 
+      /* ---------- Animated gear background ---------- */
+      #gear-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 2s ease;
+      }
+      #gear-bg.visible {
+        opacity: 1;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #gear-bg {
+          transition: none;
+        }
+      }
+ 
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: 'Manrope', system-ui, sans-serif;
+        line-height: 1.12;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+      }
+ 
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+ 
+      ::selection {
+        background: var(--green-bright);
+        color: #04130a;
+      }
+ 
+      .wrap {
+        width: 100%;
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+ 
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        font-family: 'Manrope', sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--green);
+      }
+      .eyebrow::before {
+        content: '';
+        width: 26px;
+        height: 2px;
+        background: var(--green-bright);
+      }
+ 
+      .section {
+        padding: 104px 0;
+        position: relative;
+      }
+      .section-head {
+        max-width: 760px;
+        margin-bottom: 56px;
+      }
+      .section-head h2 {
+        font-size: clamp(28px, 4vw, 46px);
+        margin: 16px 0 14px;
+      }
+      .section-head .sub {
+        font-size: clamp(17px, 2vw, 20px);
+        font-weight: 600;
+        color: var(--green);
+        font-family: 'Manrope', sans-serif;
+        margin-bottom: 14px;
+      }
+      .section-head p {
+        color: var(--muted);
+        font-size: 17px;
+      }
+ 
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: 'Manrope', sans-serif;
+        font-weight: 700;
+        font-size: 15px;
+        padding: 14px 26px;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+        border: 1.5px solid transparent;
+      }
+      .btn-primary {
+        background: var(--green);
+        color: #fff;
+        box-shadow: 0 10px 26px rgba(0, 104, 43, 0.25);
+      }
+      .btn-primary:hover {
+        background: var(--green-bright);
+        color: #04130a;
+        transform: translateY(-2px);
+        box-shadow: 0 16px 34px rgba(0, 213, 111, 0.32);
+      }
+      .btn-ghost {
+        background: #fff;
+        color: var(--ink);
+        border-color: var(--line);
+      }
+      .btn-ghost:hover {
+        border-color: var(--green-bright);
+        color: var(--green);
+        transform: translateY(-2px);
+      }
+      .btn svg {
+        width: 18px;
+        height: 18px;
+      }
+ 
+      /* ---------- Header ---------- */
+      header {
+        position: fixed;
+        inset: 0 0 auto 0;
+        z-index: 100;
+        transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        border-bottom: 1px solid transparent;
+      }
+      header.scrolled {
+        background: rgba(255, 255, 255, 0.78);
+        backdrop-filter: saturate(180%) blur(14px);
+        -webkit-backdrop-filter: saturate(180%) blur(14px);
+        border-bottom-color: var(--line);
+        box-shadow: var(--shadow-sm);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 76px;
+        gap: 18px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        flex-shrink: 0;
+      }
+      .brand img {
+        height: 30px;
+        width: auto;
+        display: block;
+      }
+      .brand .name {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 800;
+        font-size: 20px;
+        letter-spacing: 0.02em;
+      }
+      .brand .name span {
+        color: var(--green);
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+      }
+      .nav-links a {
+        font-size: 14.5px;
+        font-weight: 500;
+        color: var(--graphite);
+        position: relative;
+        transition: color 0.2s ease;
+      }
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 0;
+        height: 2px;
+        background: var(--green-bright);
+        transition: width 0.25s ease;
+      }
+      .nav-links a:hover {
+        color: var(--green);
+      }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+      .nav-phone {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        font-family: 'Manrope', sans-serif;
+        font-weight: 700;
+        font-size: 15.5px;
+        color: var(--ink);
+        white-space: nowrap;
+        transition: color 0.2s ease;
+      }
+      .nav-phone svg {
+        width: 18px;
+        height: 18px;
+        color: var(--green);
+      }
+      .nav-phone:hover {
+        color: var(--green);
+      }
+      .burger {
+        display: none;
+        width: 44px;
+        height: 44px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .burger span {
+        width: 20px;
+        height: 2px;
+        background: var(--ink);
+        transition: 0.3s;
+      }
+      .burger.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .burger.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .burger.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        inset: 76px 0 auto 0;
+        z-index: 99;
+        background: #fff;
+        border-bottom: 1px solid var(--line);
+        box-shadow: var(--shadow-md);
+        padding: 12px 24px 22px;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .mobile-menu.show {
+        display: flex;
+      }
+      .mobile-menu a {
+        padding: 13px 8px;
+        font-weight: 600;
+        border-bottom: 1px solid var(--bg-soft-2);
+        color: var(--graphite);
+      }
+      .mobile-menu a:last-of-type {
+        border-bottom: none;
+      }
+ 
+      /* ---------- Hero ---------- */
+      .hero {
+        position: relative;
+        padding: 150px 0 90px;
+        overflow: hidden;
+        background: transparent;
+      }
+      .hero-deco {
+        display: none;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 56px;
+        align-items: center;
+      }
+      .hero h1 {
+        font-size: clamp(40px, 6vw, 76px);
+        font-weight: 800;
+      }
+      .hero .lead-sub {
+        margin-top: 18px;
+        font-size: clamp(18px, 2.2vw, 23px);
+        font-weight: 600;
+        color: var(--green);
+        font-family: 'Manrope', sans-serif;
+        max-width: 560px;
+      }
+      .hero .lead-text {
+        margin-top: 18px;
+        font-size: 18px;
+        color: var(--muted);
+        max-width: 540px;
+      }
+      .hero-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin: 34px 0;
+        max-width: 560px;
+      }
+      .hero-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 18px 16px;
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      }
+      .hero-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--green-bright);
+      }
+      .hero-card .t {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 800;
+        font-size: 17px;
+      }
+      .hero-card .d {
+        font-size: 13.5px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+      .hero-card .bar {
+        width: 30px;
+        height: 3px;
+        border-radius: 3px;
+        background: var(--green-bright);
+        margin-bottom: 12px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .hero-visual {
+        position: relative;
+      }
+      .hero-visual .frame {
+        position: relative;
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--line);
+      }
+      .hero-visual img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .hero-visual .tag {
+        position: absolute;
+        left: 18px;
+        bottom: 18px;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(6px);
+        border-radius: 12px;
+        padding: 12px 16px;
+        font-family: 'Manrope', sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        box-shadow: var(--shadow-sm);
+      }
+      .hero-visual .tag b {
+        color: var(--green);
+      }
+ 
+      /* ---------- Generic layout helpers ---------- */
+      .split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 56px;
+        align-items: center;
+      }
+      .media {
+        position: relative;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--line);
+      }
+      .media img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .media:hover img {
+        transform: scale(1.06);
+      }
+ 
+      .check-list {
+        list-style: none;
+        display: grid;
+        gap: 12px;
+        margin-top: 8px;
+      }
+      .check-list li {
+        position: relative;
+        padding-left: 34px;
+        color: var(--graphite);
+        font-size: 16px;
+      }
+      .check-list li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 3px;
+        width: 21px;
+        height: 21px;
+        border-radius: 6px;
+        background: var(--green-soft);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2300682b' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      .mini-title {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 800;
+        font-size: 16px;
+        letter-spacing: 0.01em;
+        margin: 26px 0 6px;
+        color: var(--ink);
+      }
+      .lead-p {
+        color: var(--muted);
+        font-size: 17px;
+        margin-top: 6px;
+      }
+      .accent-line {
+        margin-top: 26px;
+        padding: 18px 22px;
+        border-left: 3px solid var(--green-bright);
+        background: var(--bg-soft);
+        border-radius: 0 12px 12px 0;
+        font-family: 'Manrope', sans-serif;
+        font-weight: 600;
+        color: var(--graphite);
+      }
+ 
+      .stat-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-top: 34px;
+      }
+      .stat {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 22px 18px;
+        box-shadow: var(--shadow-sm);
+      }
+      .stat .v {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 800;
+        font-size: 26px;
+        color: var(--green);
+      }
+      .stat .l {
+        font-size: 13.5px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+ 
+      .bg-soft {
+        background: transparent;
+      }
+      .bg-soft .stat,
+      .bg-soft .hero-card {
+        background: #fff;
+      }
+ 
+      /* localization flow */
+      .flow {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        gap: 12px;
+        margin-top: 40px;
+      }
+      .flow-step {
+        flex: 1 1 200px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 20px;
+        position: relative;
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.3s ease, border-color 0.3s ease;
+      }
+      .flow-step:hover {
+        transform: translateY(-4px);
+        border-color: var(--green-bright);
+      }
+      .flow-step .n {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 800;
+        font-size: 13px;
+        color: var(--green-bright);
+        letter-spacing: 0.1em;
+      }
+      .flow-step .s {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        margin-top: 6px;
+      }
+      .flow-step.final {
+        background: var(--green);
+        border-color: var(--green);
+      }
+      .flow-step.final .n {
+        color: var(--green-soft);
+      }
+      .flow-step.final .s {
+        color: #fff;
+      }
+ 
+      /* components block (green soft bg) */
+      .komplekt {
+        background: transparent;
+        position: relative;
+        overflow: hidden;
+      }
+      .komplekt .glass {
+        background: transparent;
+        border: none;
+        border-radius: var(--radius);
+        padding: 0;
+        box-shadow: none;
+      }
+      .komplekt .split {
+        align-items: start;
+      }
+      .komplekt .section-head .sub,
+      .komplekt .eyebrow {
+        color: #00531f;
+      }
+ 
+      /* cards grid */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 28px;
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .card::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--green-bright);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.35s ease;
+      }
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-lg);
+        border-color: transparent;
+      }
+      .card:hover::before {
+        transform: scaleX(1);
+      }
+      .card .ico {
+        width: 50px;
+        height: 50px;
+        border-radius: 13px;
+        background: var(--bg-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 18px;
+        color: var(--green);
+      }
+      .card .ico svg {
+        width: 25px;
+        height: 25px;
+      }
+      .card h3 {
+        font-size: 19px;
+        margin-bottom: 8px;
+      }
+      .card p {
+        color: var(--muted);
+        font-size: 15px;
+      }
+ 
+      /* before/after gallery */
+      .ba-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+      .ba-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .ba-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+      }
+      .ba-imgs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+        background: var(--line);
+      }
+      .ba-imgs .shot {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 4 / 3;
+      }
+      .ba-imgs img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .ba-imgs .shot:hover img {
+        transform: scale(1.08);
+      }
+      .ba-imgs .lbl {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-family: 'Manrope', sans-serif;
+        font-weight: 800;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        padding: 5px 11px;
+        border-radius: 7px;
+        background: rgba(255, 255, 255, 0.92);
+        color: var(--graphite);
+      }
+      .ba-imgs .lbl.after {
+        background: var(--green);
+        color: #fff;
+      }
+      .ba-card .cap {
+        padding: 18px 22px;
+        font-family: 'Manrope', sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+      }
+ 
+      /* CTA */
+      .cta {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, var(--green) 0%, #014d20 100%);
+        border-radius: 26px;
+        padding: 64px 48px;
+        text-align: center;
+        color: #fff;
+        box-shadow: var(--shadow-lg);
+      }
+      .cta::before,
+      .cta::after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(166, 255, 200, 0.12);
+        pointer-events: none;
+      }
+      .cta::before {
+        width: 340px;
+        height: 340px;
+        right: -90px;
+        top: -120px;
+      }
+      .cta::after {
+        width: 260px;
+        height: 260px;
+        left: -80px;
+        bottom: -120px;
+      }
+      .cta h2 {
+        color: #fff;
+        font-size: clamp(26px, 3.4vw, 40px);
+        max-width: 780px;
+        margin: 0 auto 14px;
+        position: relative;
+      }
+      .cta .org {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 700;
+        font-size: 18px;
+        color: var(--green-soft);
+        position: relative;
+        margin-bottom: 28px;
+      }
+      .cta .actions {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+        position: relative;
+      }
+      .cta .btn-primary {
+        background: #fff;
+        color: var(--green);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+      }
+      .cta .btn-primary:hover {
+        background: var(--green-soft);
+        color: #04130a;
+      }
+      .cta .btn-ghost {
+        background: transparent;
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+      .cta .btn-ghost:hover {
+        border-color: #fff;
+        color: var(--green-soft);
+      }
+ 
+      /* footer */
+      footer {
+        background: transparent;
+        border-top: 1px solid var(--line);
+        padding: 80px 0 36px;
+      }
+      .foot-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr;
+        gap: 40px;
+      }
+      .foot-brand .name {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 800;
+        font-size: 22px;
+      }
+      .foot-brand .name span {
+        color: var(--green);
+      }
+      .foot-brand p {
+        color: var(--muted);
+        margin-top: 14px;
+        max-width: 320px;
+        font-size: 15px;
+      }
+      .foot-col h4 {
+        font-family: 'Manrope', sans-serif;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 16px;
+      }
+      .foot-col .row {
+        margin-bottom: 14px;
+      }
+      .foot-col .k {
+        font-size: 12.5px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+      }
+      .foot-col .vv {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+      }
+      .foot-col a.vv:hover {
+        color: var(--green);
+      }
+      .foot-bottom {
+        margin-top: 48px;
+        padding-top: 24px;
+        border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 13.5px;
+      }
+ 
+      /* reveal animation */
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1), transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: opacity, transform;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+      .reveal.d1 {
+        transition-delay: 0.04s;
+      }
+      .reveal.d2 {
+        transition-delay: 0.08s;
+      }
+      .reveal.d3 {
+        transition-delay: 0.12s;
+      }
+ 
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+        html {
+          scroll-behavior: auto;
+        }
+      }
+ 
+      /* ---------- Localization status card ---------- */
+      .loc-wrap {
+        position: relative;
+        margin-top: 40px;
+      }
+      .loc-card {
+        position: relative;
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 22px;
+        box-shadow: var(--shadow-lg);
+        padding: 34px 32px;
+        overflow: hidden;
+        width: 100%;
+        transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+      }
+      .loc-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(rgba(0, 76, 12, 0.06) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 76, 12, 0.06) 1px, transparent 1px);
+        background-size: 26px 26px;
+        -webkit-mask-image: radial-gradient(ellipse at 78% -10%, #000 0%, transparent 70%);
+        mask-image: radial-gradient(ellipse at 78% -10%, #000 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .loc-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 32px 76px rgba(16, 40, 28, 0.18);
+      }
+      .loc-scan {
+        position: absolute;
+        top: 0;
+        left: -45%;
+        width: 45%;
+        height: 100%;
+        background: linear-gradient(100deg, transparent, rgba(0, 76, 12, 0.07), transparent);
+        pointer-events: none;
+        z-index: 1;
+      }
+      .loc-card.loc-animate .loc-scan {
+        animation: locScan 5s ease-in-out 1s infinite;
+      }
+      @keyframes locScan {
+        0% {
+          left: -45%;
+        }
+        55% {
+          left: 125%;
+        }
+        100% {
+          left: 125%;
+        }
+      }
+      .loc-card > .loc-row {
+        position: relative;
+        z-index: 2;
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .loc-card.loc-animate > .loc-row {
+        opacity: 1;
+        transform: none;
+      }
+      .loc-card.loc-animate .loc-top {
+        transition-delay: 0.05s;
+      }
+      .loc-card.loc-animate .loc-grid {
+        transition-delay: 0.16s;
+      }
+      .loc-card.loc-animate .loc-progress-wrap {
+        transition-delay: 0.28s;
+      }
+      .loc-card.loc-animate .loc-units {
+        transition-delay: 0.4s;
+      }
+      .loc-card.loc-animate .loc-foot {
+        transition-delay: 0.9s;
+      }
+      .loc-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      }
+      .loc-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: 'Manrope', sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        color: #004c0c;
+      }
+      .loc-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #004c0c;
+        box-shadow: 0 0 0 0 rgba(0, 76, 12, 0.5);
+      }
+      .loc-card.loc-animate .loc-dot {
+        animation: locPulse 2.1s ease-out infinite;
+      }
+      @keyframes locPulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(0, 76, 12, 0.5);
+        }
+        70% {
+          box-shadow: 0 0 0 13px rgba(0, 76, 12, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(0, 76, 12, 0);
+        }
+      }
+      .loc-org {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 600;
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .loc-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px 26px;
+        padding: 26px 0;
+      }
+      .loc-field .k {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 700;
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .loc-field .v {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 800;
+        font-size: 17px;
+        color: var(--graphite);
+        margin-top: 7px;
+        line-height: 1.3;
+      }
+      .loc-pct {
+        color: #004c0c;
+      }
+      .loc-progress {
+        position: relative;
+        height: 8px;
+        border-radius: 99px;
+        background: rgba(0, 76, 12, 0.1);
+        overflow: hidden;
+      }
+      .loc-progress-fill {
+        display: block;
+        height: 100%;
+        width: 0;
+        border-radius: 99px;
+        background: linear-gradient(90deg, #004c0c, #0a7d1e);
+        transition: width 1.6s cubic-bezier(0.16, 0.84, 0.44, 1), box-shadow 0.4s ease;
+      }
+      .loc-card:hover .loc-progress-fill {
+        box-shadow: 0 0 14px rgba(0, 76, 12, 0.55);
+      }
+      .loc-units {
+        margin-top: 20px;
+      }
+      .loc-units-title {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 700;
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 12px;
+      }
+      .loc-units-list {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .loc-units-list li {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 13px;
+        background: rgba(0, 76, 12, 0.05);
+        border: 1px solid rgba(0, 76, 12, 0.14);
+        border-radius: 99px;
+        font-family: 'Manrope', sans-serif;
+        font-weight: 600;
+        font-size: 13px;
+        color: var(--graphite);
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+      .loc-units-list li::before {
+        content: '';
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #004c0c;
+        flex: none;
+      }
+      .loc-card.loc-animate .loc-units-list li {
+        opacity: 1;
+        transform: none;
+      }
+      .loc-card.loc-animate .loc-units-list li:nth-child(1) {
+        transition-delay: 0.5s;
+      }
+      .loc-card.loc-animate .loc-units-list li:nth-child(2) {
+        transition-delay: 0.57s;
+      }
+      .loc-card.loc-animate .loc-units-list li:nth-child(3) {
+        transition-delay: 0.64s;
+      }
+      .loc-card.loc-animate .loc-units-list li:nth-child(4) {
+        transition-delay: 0.71s;
+      }
+      .loc-card.loc-animate .loc-units-list li:nth-child(5) {
+        transition-delay: 0.78s;
+      }
+      .loc-card.loc-animate .loc-units-list li:nth-child(6) {
+        transition-delay: 0.85s;
+      }
+      .loc-card.loc-animate .loc-units-list li:nth-child(7) {
+        transition-delay: 0.92s;
+      }
+      .loc-foot {
+        margin-top: 20px;
+        padding-top: 16px;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        font-family: 'Manrope', sans-serif;
+        font-weight: 700;
+        font-size: 13px;
+        color: #004c0c;
+      }
+      @media (max-width: 760px) {
+        .loc-card {
+          padding: 22px 18px;
+        }
+        .loc-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 18px;
+        }
+      }
+      @media (max-width: 460px) {
+        .loc-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .loc-card > .loc-row,
+        .loc-units-list li {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+        .loc-card.loc-animate .loc-scan,
+        .loc-card.loc-animate .loc-dot {
+          animation: none;
+        }
+        .loc-progress-fill {
+          transition: none;
+        }
+      }
+ 
+      /* ---------- Responsive ---------- */
+      @media (max-width: 1080px) {
+        .nav-links {
+          gap: 18px;
+        }
+        .nav-links a {
+          font-size: 13.5px;
+        }
+      }
+      @media (max-width: 940px) {
+        .nav-links,
+        .nav-phone {
+          display: none;
+        }
+        .burger {
+          display: flex;
+        }
+        .hero-grid,
+        .split {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+        .hero {
+          padding-top: 120px;
+        }
+        .hero-visual {
+          order: -1;
+        }
+        .stat-row {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .cards {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 680px) {
+        .section {
+          padding: 72px 0;
+        }
+        .hero-cards {
+          grid-template-columns: 1fr;
+        }
+        .cards,
+        .ba-grid {
+          grid-template-columns: 1fr;
+        }
+        .foot-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+        .cta {
+          padding: 48px 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="gear-bg" aria-hidden="true"></canvas>
+    <!-- ============ HEADER ============ -->
+    <header id="header">
+      <div class="wrap nav">
+        <a href="#top" class="brand" aria-label="ООО САМРАУ">
+          <img src="images/logo-samrau.svg" alt="Логотип ООО САМРАУ" />
+        </a>
+        <nav class="nav-links">
+          <a href="#top">О компании</a>
+          <a href="#proekty">Проекты</a>
+          <a href="#contacts">Контакты</a>
+        </nav>
+        <a class="nav-phone" href="tel:+79061056540">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +7 (906) 105-65-40
+        </a>
+        <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      </div>
+    </header>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#top">О компании</a>
+      <a href="#proekty">Проекты</a>
+      <a href="#contacts">Контакты</a>
+      <a href="tel:+79061056540" style="color: var(--green); font-weight: 700">+7 (906) 105-65-40</a>
+    </div>
+ 
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <div class="hero-deco" data-parallax="0.25" style="width: 360px; height: 360px; background: var(--green-soft); right: -80px; top: -60px"></div>
+      <div class="hero-deco" data-parallax="0.15" style="width: 220px; height: 220px; background: #d6f7e4; left: -70px; bottom: 40px"></div>
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow reveal">Подземная буровая техника · Учалы</span>
+          <h1 class="reveal d1">ООО «САМРАУ»</h1>
+          <p class="lead-sub reveal d1">
+            Капитальный ремонт подземных буровых машин и локализация производства узлов
+          </p>
+          <p class="lead-text reveal d2">
+            Восстанавливаем стрелы, ремонтируем гидроцилиндры, изготавливаем узлы и комплектующие
+            с поэтапным контролем качества.
+          </p>
+          <div class="hero-cards reveal d2">
+            <div class="hero-card">
+              <div class="bar"></div>
+              <div class="t">Стрелы</div>
+              <div class="d">производство и восстановление</div>
+            </div>
+            <div class="hero-card">
+              <div class="bar"></div>
+              <div class="t">Гидроцилиндры</div>
+              <div class="d">ремонт и испытания</div>
+            </div>
+            <div class="hero-card">
+              <div class="bar"></div>
+              <div class="t">Комплектующие</div>
+              <div class="d">локализованное производство</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual reveal d2" data-parallax="0.08">
+          <div class="frame">
+            <img src="images/hero-burovaya-mashina.jpg" alt="Подземная буровая машина" />
+          </div>
+          <div class="tag">Концепт <b>проходческой машины</b></div>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- ============ PRODUCTION BASE ============ -->
+    <section class="section" id="base">
+      <div class="wrap">
+        <div class="split">
+          <div>
+            <div class="section-head reveal" style="margin-bottom: 28px">
+              <span class="eyebrow">О компании</span>
+              <h2>Собственная производственная база</h2>
+              <div class="sub">Полный цикл ремонта и изготовления узлов на одной площадке</div>
+              <p>
+                ООО «САМРАУ» располагает собственной производственной площадкой в г. Учалы.
+                Инфраструктура предприятия позволяет выполнять ключевые этапы работ без привлечения
+                сторонних подрядчиков.
+              </p>
+            </div>
+            <div class="reveal d1">
+              <div class="mini-title">Ключевые операции на площадке</div>
+              <ul class="check-list">
+                <li>плазменная резка металла и рубка на гильотине</li>
+                <li>токарно-фрезерная и расточная обработка</li>
+                <li>сварка, наплавка и УДГЗ-закаливание поверхностей</li>
+                <li>окраска изделий в собственной окрасочной камере</li>
+                <li>склад готовой продукции и зона ремонта спецтехники</li>
+              </ul>
+              <div class="accent-line">
+                Замкнутый производственный цикл обеспечивает контроль сроков
+                и качества на каждом этапе.
+              </div>
+            </div>
+          </div>
+          <div class="reveal d1">
+            <div class="media" data-parallax="0.05">
+              <!-- Заменить на фото производственной площадки / завода -->
+              <img src="images/proizvodstvennaya-baza.jpg" alt="Производственная база ООО САМРАУ" />
+            </div>
+            <div class="stat-row">
+              <div class="stat"><div class="v">1 га</div><div class="l">территории</div></div>
+              <div class="stat"><div class="v">2300 м²</div><div class="l">производственных зданий</div></div>
+              <div class="stat"><div class="v">30+</div><div class="l">единиц оборудования</div></div>
+              <div class="stat"><div class="v">10+</div><div class="l">специалистов</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- ============ LOCALIZATION OF BOOMS ============ -->
+    <section class="section bg-soft" id="strely">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Локализация</span>
+          <h2>Локализация стрел Resemin Troidon 66 / Stellar Aton 66</h2>
+          <div class="sub">Первый этап проекта отечественной двустреловой проходческой машины</div>
+          <p>
+            В рамках проекта по разработке отечественной подземной проходческой машины ООО «САМРАУ»
+            выполнило реверс-инжиниринг и локализовало производство двух стрел в сборе для
+            Resemin Troidon 66 (Stellar Aton 66).
+          </p>
+        </div>
+        <div class="split">
+          <div class="reveal d1">
+            <div class="mini-title">Состав стрел</div>
+            <ul class="check-list">
+              <li>податчики и гидроцилиндры</li>
+              <li>переходные плиты и телескопические секции</li>
+              <li>узлы сопряжения и элементы крепления</li>
+              <li>изготовление на собственной производственной базе</li>
+            </ul>
+            <div class="accent-line">
+              Следующий этап — мелкосерийное производство стрел и ключевых компонентов.
+            </div>
+          </div>
+          <div class="reveal d1">
+            <div class="loc-card" id="locCard">
+              <span class="loc-scan" aria-hidden="true"></span>
+              <div class="loc-row loc-top">
+                <span class="loc-status"><span class="loc-dot"></span> Проект реализован</span>
+                <span class="loc-org">САМРАУ · Учалы</span>
+              </div>
+              <div class="loc-row loc-grid">
+                <div class="loc-field">
+                  <div class="k">Объект</div>
+                  <div class="v">Resemin Troidon 66 / Stellar Aton 66</div>
+                </div>
+                <div class="loc-field">
+                  <div class="k">Статус</div>
+                  <div class="v">Выполнено</div>
+                </div>
+                <div class="loc-field">
+                  <div class="k">Состав</div>
+                  <div class="v">Две стрелы в сборе</div>
+                </div>
+                <div class="loc-field">
+                  <div class="k">Готовность</div>
+                  <div class="v"><span class="loc-pct" data-target="100">0</span>%</div>
+                </div>
+              </div>
+              <div class="loc-row loc-progress-wrap">
+                <div class="loc-progress"><span class="loc-progress-fill" id="locFill"></span></div>
+              </div>
+              <div class="loc-row loc-foot">Проект локализации полностью реализован</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- ============ BOOM RESTORATION ============ -->
+    <section class="section">
+      <div class="wrap">
+        <div class="split">
+          <div class="media reveal" data-parallax="0.05">
+            <!-- Заменить на фото восстановленной стрелы / работ -->
+            <img src="images/vosstanovlenie-strel.jpg" alt="Восстановление стрел подземных буровых машин" />
+          </div>
+          <div>
+            <div class="section-head reveal d1" style="margin-bottom: 24px">
+              <span class="eyebrow">Ремонт</span>
+              <h2>Восстановление стрел подземных буровых машин</h2>
+              <p>
+                ООО «САМРАУ» восстановило стрелы подземных буровых машин Sandvik и Машхолдинг,
+                включая геометрию, посадочные места, телескопические секции и соединительные элементы.
+              </p>
+            </div>
+            <div class="reveal d1">
+              <div class="mini-title">Выполняемые работы</div>
+              <ul class="check-list">
+                <li>дефектовка и оценка повреждений</li>
+                <li>восстановление внутреннего квадрата телескопа</li>
+                <li>ремонт сварных соединений и посадочных зон</li>
+                <li>контроль геометрии после ремонта</li>
+                <li>подготовка поверхности и окраска</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- ============ COMPONENTS (soft green) ============ -->
+    <section class="section komplekt" id="komplekt">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Производство</span>
+          <h2>Локальное производство комплектующих</h2>
+          <div class="sub">Комплектующие без зависимости от внешних поставок</div>
+          <p style="color: #1d3a29">
+            ООО «САМРАУ» изготавливает расходные и быстроизнашиваемые элементы для стрел подземных
+            буровых машин иностранного и отечественного производства. Собственная база позволяет
+            сокращать сроки поставки и выпускать детали под задачи ремонта.
+          </p>
+        </div>
+        <div class="split">
+          <div class="glass reveal d1">
+            <div class="mini-title">Выполняемые работы</div>
+            <ul class="check-list">
+              <li>пальцы, втулки, направляющие и скользящие элементы</li>
+              <li>посадочные кольца и опорные элементы</li>
+              <li>ремонтные вставки и элементы телескопических секций</li>
+              <li>детали по образцу или чертежу</li>
+            </ul>
+          </div>
+          <div class="media reveal d1" data-parallax="0.05">
+            <!-- Заменить на фото комплектующих / производства деталей -->
+            <img src="images/proizvodstvo-komplektuyushih.jpg" alt="Локальное производство комплектующих" />
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- ============ HYDRAULIC CYLINDER REPAIR ============ -->
+    <section class="section" id="gidro">
+      <div class="wrap">
+        <div class="split">
+          <div>
+            <div class="section-head reveal" style="margin-bottom: 24px">
+              <span class="eyebrow">Гидравлика</span>
+              <h2>Ремонт гидроцилиндров</h2>
+              <div class="sub">Оперативный ремонт для сокращения простоя техники</div>
+              <p>
+                ООО «САМРАУ» выполняет ремонт гидроцилиндров для подземных буровых машин:
+                от разборки и дефектовки до восстановления деталей, замены изношенных компонентов
+                и финальной сборки.
+              </p>
+            </div>
+            <div class="reveal d1">
+              <div class="mini-title">Выполняемые работы</div>
+              <ul class="check-list">
+                <li>разборка и дефектовка гидроцилиндра</li>
+                <li>восстановление деталей и замена компонентов</li>
+                <li>сборка гидроцилиндра после ремонта</li>
+                <li>испытания на маслостанции</li>
+                <li>нанесение защитного покрытия</li>
+              </ul>
+              <div class="accent-line">
+                Современное оборудование и качественные комплектующие повышают надёжность узла.
+              </div>
+            </div>
+          </div>
+          <div class="media reveal d1" data-parallax="0.05">
+            <!-- Заменить на фото гидроцилиндра -->
+            <img src="images/remont-gidrocilindrov.jpg" alt="Ремонт гидроцилиндров" />
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- ============ HYDRAULIC CYLINDER TESTING ============ -->
+    <section class="section bg-soft" id="ispytaniya">
+      <div class="wrap">
+        <div class="split">
+          <div class="media reveal" data-parallax="0.05">
+            <!-- Заменить на фото испытательного стенда / гидравлической установки -->
+            <img src="images/ispytaniya-gidrocilindrov.jpg" alt="Испытания гидроцилиндров" />
+          </div>
+          <div>
+            <div class="section-head reveal d1" style="margin-bottom: 24px">
+              <span class="eyebrow">Контроль качества</span>
+              <h2>Испытания гидроцилиндров</h2>
+              <div class="sub">Проверка работоспособности под нагрузкой</div>
+              <p>
+                После ремонта каждый гидроцилиндр проходит обязательные испытания на гидравлической
+                установке. Это позволяет проверить узел под нагрузкой ещё до передачи заказчику.
+              </p>
+            </div>
+            <div class="reveal d1">
+              <div class="mini-title">Выполняемые работы</div>
+              <ul class="check-list">
+                <li>проверка герметичности соединений и уплотнений</li>
+                <li>испытание под рабочим давлением</li>
+                <li>контроль плавности хода штока</li>
+                <li>проверка отсутствия внутренних утечек</li>
+                <li>визуальная проверка после испытаний</li>
+              </ul>
+              <div class="accent-line">
+                Контроль стабильности работы под нагрузкой — до передачи заказчику.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- ============ PAINT CHAMBER ============ -->
+    <section class="section" id="okraska">
+      <div class="wrap">
+        <div class="split">
+          <div>
+            <div class="section-head reveal" style="margin-bottom: 24px">
+              <span class="eyebrow">Производственный цикл</span>
+              <h2>Собственная окрасочная камера</h2>
+              <div class="sub">Защитное покрытие без передачи работ подрядчикам</div>
+              <p>
+                ООО «САМРАУ» выполняет окраску восстановленных и изготовленных узлов на собственной
+                производственной площадке. Окрасочная камера позволяет контролировать подготовку
+                поверхности, качество покрытия и сроки выполнения работ.
+              </p>
+            </div>
+            <div class="reveal d1">
+              <div class="mini-title">Выполняемые работы</div>
+              <ul class="check-list">
+                <li>подготовка поверхности перед окраской</li>
+                <li>равномерность нанесения покрытия</li>
+                <li>толщина лакокрасочного слоя</li>
+                <li>состояние покрытия на кромках и сварных соединениях</li>
+                <li>внешний вид изделия перед передачей заказчику</li>
+              </ul>
+            </div>
+          </div>
+          <div class="media reveal d1" data-parallax="0.05">
+            <img src="images/okrasochnaya-kamera.jpg" alt="Собственная окрасочная камера" />
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- ============ BEFORE / AFTER PROJECTS ============ -->
+    <section class="section bg-soft" id="proekty">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Проекты</span>
+          <h2>Реализованные проекты: до / после</h2>
+          <div class="sub">Примеры восстановления узлов подземной буровой техники</div>
+          <p>
+            Формат «до / после» наглядно показывает состояние узла до ремонта, объём выполненных
+            работ и готовое изделие после восстановления.
+          </p>
+        </div>
+        <div class="ba-grid">
+          <div class="ba-card reveal">
+            <div class="ba-imgs">
+              <div class="shot"><span class="lbl">ДО</span><img src="images/proekt-1-strela-sandvik-dd2711-do.svg" alt="До ремонта" /></div>
+              <div class="shot"><span class="lbl after">ПОСЛЕ</span><img src="images/proekt-1-strela-sandvik-dd2711-posle.svg" alt="После ремонта" /></div>
+            </div>
+            <div class="cap">Восстановление внутреннего квадрата телескопической стрелы Sandvik DD2711</div>
+          </div>
+          <div class="ba-card reveal d1">
+            <div class="ba-imgs">
+              <div class="shot"><span class="lbl">ДО</span><img src="images/proekt-2-strela-mashholding-df-b1-do.svg" alt="До ремонта" /></div>
+              <div class="shot"><span class="lbl after">ПОСЛЕ</span><img src="images/proekt-2-strela-mashholding-df-b1-posle.svg" alt="После ремонта" /></div>
+            </div>
+            <div class="cap">Восстановление внутреннего квадрата телескопической стрелы Машхолдинг DF-B1</div>
+          </div>
+          <div class="ba-card reveal">
+            <div class="ba-imgs">
+              <div class="shot"><span class="lbl">ДО</span><img src="images/proekt-3-podatchik-mashholding-df-b1-do.svg" alt="До ремонта" /></div>
+              <div class="shot"><span class="lbl after">ПОСЛЕ</span><img src="images/proekt-3-podatchik-mashholding-df-b1-posle.svg" alt="После ремонта" /></div>
+            </div>
+            <div class="cap">Восстановление узла наклона и поворота податчика бурового модуля Машхолдинг DF-B1</div>
+          </div>
+          <div class="ba-card reveal d1">
+            <div class="ba-imgs">
+              <div class="shot"><span class="lbl">ДО</span><img src="images/proekt-4-gidrocilindr-fambition-fl07-do.svg" alt="До ремонта" /></div>
+              <div class="shot"><span class="lbl after">ПОСЛЕ</span><img src="images/proekt-4-gidrocilindr-fambition-fl07-posle.svg" alt="После ремонта" /></div>
+            </div>
+            <div class="cap">Ремонт гидроцилиндра подъёма стрелы Fambition FL07</div>
+          </div>
+          <div class="ba-card reveal" style="grid-column: 1 / -1; max-width: 620px; margin: 0 auto">
+            <div class="ba-imgs">
+              <div class="shot"><span class="lbl">ДО</span><img src="images/proekt-5-gidrocilindr-oprokid-fambition-fl07-do.svg" alt="До ремонта" /></div>
+              <div class="shot"><span class="lbl after">ПОСЛЕ</span><img src="images/proekt-5-gidrocilindr-oprokid-fambition-fl07-posle.svg" alt="После ремонта" /></div>
+            </div>
+            <div class="cap">Ремонт гидроцилиндра опрокидывания Fambition FL07</div>
+          </div>
+        </div>
+        <div class="accent-line reveal" style="margin-top: 32px; max-width: 640px">
+          Каждый восстановленный узел проходит контроль перед передачей заказчику.
+        </div>
+      </div>
+    </section>
+ 
+    <!-- ============ ADVANTAGES ============ -->
+    <section class="section" id="preimush">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Преимущества</span>
+          <h2>Почему выбирают ООО «САМРАУ»</h2>
+          <div class="sub">Производство, ремонт и контроль качества на одной площадке</div>
+          <p>
+            ООО «САМРАУ» объединяет производственные мощности, инженерную экспертизу и практический
+            опыт ремонта подземной буровой техники.
+          </p>
+        </div>
+        <div class="cards">
+          <div class="card reveal">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 20V8l5-3 5 3"/><path d="M14 20V11l6-3v12"/><path d="M9 20v-4h0"/></svg></div>
+            <h3>Собственное производство</h3>
+            <p>Изготавливаем и восстанавливаем узлы без привлечения внешних подрядчиков.</p>
+          </div>
+          <div class="card reveal d1">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10z"/></svg></div>
+            <h3>Локализация производства</h3>
+            <p>Локальное производство исключает длительное ожидание импортных деталей.</p>
+          </div>
+          <div class="card reveal d2">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <h3>Снижение стоимости</h3>
+            <p>Отказ от международной логистики, таможенных платежей и дилерских наценок снижает итоговую стоимость работ.</p>
+          </div>
+          <div class="card reveal">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h2l2-7 4 14 3-9 2 4h7"/></svg></div>
+            <h3>Инженерный контроль</h3>
+            <p>Специалисты контролируют геометрию, материалы, сварку, механообработку, окраску и испытания.</p>
+          </div>
+          <div class="card reveal d1">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+            <h3>Гарантия</h3>
+            <p>Обязательства с российской компанией упрощают коммуникацию и гарантийное обслуживание.</p>
+          </div>
+          <div class="card reveal d2">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg></div>
+            <h3>Импортозамещение</h3>
+            <p>Локализуем узлы и комплектующие для подземной буровой техники иностранного производства.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- ============ FOOTER / CONTACTS ============ -->
+    <footer id="contacts">
+      <div class="wrap">
+        <div class="foot-grid">
+          <div class="foot-brand reveal">
+            <div class="brand" style="margin-bottom: 4px">
+              <img src="images/logo-samrau.svg" alt="Логотип ООО САМРАУ" style="height: 34px; width: auto" />
+            </div>
+            <p>
+              Капитальный ремонт подземных буровых машин, восстановление стрел, ремонт
+              гидроцилиндров, изготовление узлов и комплектующих.
+            </p>
+          </div>
+          <div class="foot-col reveal d1">
+            <h4>Связь</h4>
+            <div class="row">
+              <div class="k">Телефон</div>
+              <a class="vv" href="tel:+79061056540">+7 (906) 105-65-40</a>
+              <div class="k" style="margin-top: 2px">UTC +5, YEKT</div>
+            </div>
+            <div class="row">
+              <div class="k">E-mail</div>
+              <a class="vv" href="mailto:l.asadullina@samrau.com">l.asadullina@samrau.com</a>
+            </div>
+          </div>
+          <div class="foot-col reveal d2">
+            <h4>Адрес</h4>
+            <div class="row">
+              <div class="vv" style="font-weight: 600; line-height: 1.5">
+                г. Учалы, Республика Башкортостан<br />ул. Энергетиков 31
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="foot-bottom">
+          <span>© <span id="year"></span> ООО «САМРАУ». Все права защищены.</span>
+          <span>Учалы · Республика Башкортостан</span>
+        </div>
+      </div>
+    </footer>
+ 
+    <script>
+      // Year
+      document.getElementById('year').textContent = new Date().getFullYear();
+ 
+      // Sticky header blur
+      const header = document.getElementById('header');
+      const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 20);
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+ 
+      // Mobile menu
+      const burger = document.getElementById('burger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      burger.addEventListener('click', () => {
+        burger.classList.toggle('open');
+        mobileMenu.classList.toggle('show');
+      });
+      mobileMenu.querySelectorAll('a').forEach((a) =>
+        a.addEventListener('click', () => {
+          burger.classList.remove('open');
+          mobileMenu.classList.remove('show');
+        })
+      );
+ 
+      // Scroll reveal via IntersectionObserver
+      const revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.05, rootMargin: '0px 0px 4% 0px' }
+        );
+        revealEls.forEach((el) => io.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add('visible'));
+      }
+ 
+      // Parallax disabled — cards/photos stay fixed during scroll (only reveal-on-scroll remains)
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ 
+      // Localization status card — counter + progress fill on reveal
+      const locCard = document.getElementById('locCard');
+      if (locCard) {
+        const fill = document.getElementById('locFill');
+        const pctEl = locCard.querySelector('.loc-pct');
+        const target = parseInt((pctEl && pctEl.dataset.target) || '100', 10);
+        const runLoc = () => {
+          locCard.classList.add('loc-animate');
+          if (reduceMotion) {
+            if (fill) fill.style.width = target + '%';
+            if (pctEl) pctEl.textContent = target;
+            return;
+          }
+          window.setTimeout(() => {
+            if (fill) fill.style.width = target + '%';
+            if (pctEl) {
+              const dur = 1600;
+              const start = performance.now();
+              const tick = (now) => {
+                const p = Math.min((now - start) / dur, 1);
+                const eased = 1 - Math.pow(1 - p, 3);
+                pctEl.textContent = Math.round(eased * target);
+                if (p < 1) window.requestAnimationFrame(tick);
+              };
+              window.requestAnimationFrame(tick);
+            }
+          }, 320);
+        };
+        if ('IntersectionObserver' in window) {
+          const lio = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((e) => {
+                if (e.isIntersecting) {
+                  runLoc();
+                  lio.unobserve(e.target);
+                }
+              });
+            },
+            { threshold: 0.35 }
+          );
+          lio.observe(locCard);
+        } else {
+          runLoc();
+        }
+      }
+    </script>
+ 
+    <!-- ============ ANIMATED GEAR BACKGROUND ============ -->
+    <script>
+      (function () {
+        const canvas = document.getElementById('gear-bg');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ 
+        let W, H, gears = [];
+        let startTime = performance.now();
+ 
+        const GEAR_SPACING = 1.12;
+ 
+        const palette = [
+          { fill: 'rgba(145,150,158,0.08)', stroke: 'rgba(105,110,118,0.16)', spoke: 'rgba(115,120,128,0.10)' },
+          { fill: 'rgba(125,175,142,0.08)', stroke: 'rgba(85,135,102,0.16)', spoke: 'rgba(95,145,112,0.10)' },
+          { fill: 'rgba(165,170,178,0.07)', stroke: 'rgba(125,130,138,0.14)', spoke: 'rgba(135,140,148,0.09)' },
+          { fill: 'rgba(140,180,150,0.07)', stroke: 'rgba(100,140,110,0.14)', spoke: 'rgba(110,150,120,0.09)' },
+          { fill: 'rgba(130,135,140,0.09)', stroke: 'rgba(90,95,100,0.17)', spoke: 'rgba(100,105,110,0.11)' },
+          { fill: 'rgba(110,170,135,0.09)', stroke: 'rgba(70,130,95,0.17)', spoke: 'rgba(80,140,105,0.11)' },
+        ];
+ 
+        function resize() {
+          const dpr = window.devicePixelRatio || 1;
+          W = window.innerWidth;
+          H = window.innerHeight;
+          canvas.width = W * dpr;
+          canvas.height = H * dpr;
+          canvas.style.width = W + 'px';
+          canvas.style.height = H + 'px';
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          startTime = performance.now();
+          generateGears();
+          cacheGearTextures();
+        }
+ 
+        function generateGears() {
+          gears = [];
+          const scale = Math.min(W, H) / 850;
+          const mod = 5.5 * Math.max(scale, 0.55);
+          const baseSpeed = prefersReduced ? 0.0003 : 0.003;
+ 
+          function tryAdd(x, y, numTeeth, parentIdx, depth, colorOverride) {
+            const pr = numTeeth * mod / 2;
+            let cx = x, cy = y, contactAngle = 0;
+ 
+            if (parentIdx >= 0) {
+              const p = gears[parentIdx];
+              contactAngle = Math.atan2(y - p.y, x - p.x);
+              const dist = (p.pitchRadius + pr) * GEAR_SPACING;
+              cx = p.x + Math.cos(contactAngle) * dist;
+              cy = p.y + Math.sin(contactAngle) * dist;
+            }
+ 
+            for (let i = 0; i < gears.length; i++) {
+              if (i === parentIdx) continue;
+              const g = gears[i];
+              const dx = cx - g.x, dy = cy - g.y;
+              const minD = (g.pitchRadius + pr) * 1.16;
+              if (dx * dx + dy * dy < minD * minD) return -1;
+            }
+ 
+            if (parentIdx >= 0) {
+              const m = pr * 2.5;
+              if (cx < -m || cx > W + m || cy < -m || cy > H + m) return -1;
+            }
+ 
+            const idx = gears.length;
+            gears.push({
+              x: cx, y: cy, numTeeth, pitchRadius: pr,
+              contactAngle, parentIdx, depth: depth || 0,
+              color: colorOverride || palette[Math.floor(Math.random() * palette.length)],
+              birth: idx * 80,
+              angle: 0,
+              speed: parentIdx === -1 ? baseSpeed * (0.6 + Math.random() * 0.8) : 0,
+              dir: parentIdx === -1 ? (Math.random() < 0.5 ? 1 : -1) : 0
+            });
+ 
+            return idx;
+          }
+ 
+          const rootIndices = [];
+          let attempts = 0;
+          while (rootIndices.length < 2 && attempts < 15) {
+            const sx = W * (0.2 + Math.random() * 0.6);
+            const sy = H * (0.2 + Math.random() * 0.6);
+            const st = 28 + Math.floor(Math.random() * 16);
+            const idx = tryAdd(sx, sy, st, -1, 0, null);
+            if (idx !== -1) rootIndices.push(idx);
+            attempts++;
+          }
+ 
+          const allBranches = [...rootIndices];
+          for (let i = 0; i < allBranches.length; i++) {
+            const pIdx = allBranches[i];
+            const p = gears[pIdx];
+            const childCount = 1 + Math.floor(Math.random() * 2);
+            const baseA = Math.random() * Math.PI * 2;
+ 
+            for (let j = 0; j < childCount; j++) {
+              const ct = Math.max(14, Math.floor(p.numTeeth * (0.4 + Math.random() * 0.5)));
+              const ca = baseA + (j / childCount) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
+              const cx = p.x + Math.cos(ca) * (p.pitchRadius + ct * mod / 2);
+              const cy = p.y + Math.sin(ca) * (p.pitchRadius + ct * mod / 2);
+              const cIdx = tryAdd(cx, cy, ct, pIdx, p.depth + 1, null);
+ 
+              if (cIdx !== -1) {
+                allBranches.push(cIdx);
+ 
+                if (Math.random() < 0.25) {
+                  const gt = Math.max(10, Math.floor(ct * (0.35 + Math.random() * 0.45)));
+                  const ga = Math.random() * Math.PI * 2;
+                  const gx = gears[cIdx].x + Math.cos(ga) * (gears[cIdx].pitchRadius + gt * mod / 2);
+                  const gy = gears[cIdx].y + Math.sin(ga) * (gears[cIdx].pitchRadius + gt * mod / 2);
+                  const gIdx = tryAdd(gx, gy, gt, cIdx, p.depth + 2, null);
+ 
+                  if (gIdx !== -1) {
+                    allBranches.push(gIdx);
+                  }
+                }
+              }
+            }
+          }
+ 
+          const edgeGears = [
+            { x: W * -0.06, y: H * 0.22, t: 52 }, { x: W * 1.08, y: H * 0.62, t: 56 },
+            { x: W * 0.68, y: H * -0.1, t: 40 }, { x: W * 0.32, y: H * 1.12, t: 44 },
+            { x: W * -0.04, y: H * 0.88, t: 36 }, { x: W * 1.06, y: H * 0.14, t: 38 },
+          ];
+          edgeGears.forEach(e => {
+            const idx = tryAdd(e.x, e.y, e.t, -1, -1, null);
+            if (idx !== -1) {
+              gears[idx].color = {
+                fill: gears[idx].color.fill.replace(/[\d.]+\)$/, '0.04)'),
+                stroke: gears[idx].color.stroke.replace(/[\d.]+\)$/, '0.08)'),
+                spoke: gears[idx].color.spoke.replace(/[\d.]+\)$/, '0.05)'),
+              };
+              gears[idx].speed *= 0.35;
+            }
+          });
+        }
+ 
+        function cacheGearTextures() {
+          const dpr = window.devicePixelRatio || 1;
+ 
+          for (const g of gears) {
+            const size = Math.ceil(g.pitchRadius * 2.6);
+            const pSize = Math.ceil(size * dpr);
+ 
+            const offCanvas = document.createElement('canvas');
+            offCanvas.width = pSize;
+            offCanvas.height = pSize;
+            const c = offCanvas.getContext('2d');
+ 
+            c.scale(dpr, dpr);
+            c.translate(size / 2, size / 2);
+ 
+            renderGearShape(c, g);
+ 
+            g.texture = offCanvas;
+            g.size = size;
+          }
+        }
+ 
+        function renderGearShape(c, gear) {
+          const { numTeeth, pitchRadius, color } = gear;
+          const toothH = pitchRadius * 0.12;
+          const outerR = pitchRadius + toothH;
+          const rootR = pitchRadius - toothH;
+          const holeR = Math.max(pitchRadius * 0.18, 2.5);
+          const step = (Math.PI * 2) / numTeeth;
+ 
+          c.beginPath();
+          for (let i = 0; i < numTeeth; i++) {
+            const a = i * step;
+            const tHW = step * 0.19;
+            const rHW = step * 0.26;
+            if (i === 0) c.moveTo(Math.cos(a - rHW) * rootR, Math.sin(a - rHW) * rootR);
+            else c.lineTo(Math.cos(a - rHW) * rootR, Math.sin(a - rHW) * rootR);
+            c.lineTo(Math.cos(a - tHW) * outerR, Math.sin(a - tHW) * outerR);
+            c.lineTo(Math.cos(a + tHW) * outerR, Math.sin(a + tHW) * outerR);
+            c.lineTo(Math.cos(a + rHW) * rootR, Math.sin(a + rHW) * rootR);
+          }
+          c.closePath();
+          c.fillStyle = color.fill;
+          c.fill();
+          c.strokeStyle = color.stroke;
+          c.lineWidth = 1;
+          c.stroke();
+ 
+          if (pitchRadius > 28) {
+            const innerR = pitchRadius * 0.50;
+            c.beginPath();
+            c.arc(0, 0, innerR, 0, Math.PI * 2);
+            c.strokeStyle = color.stroke;
+            c.lineWidth = pitchRadius > 55 ? 1.4 : 0.8;
+            c.stroke();
+ 
+            if (pitchRadius > 48) {
+              const hCount = Math.max(3, Math.min(8, Math.floor(numTeeth / 4)));
+              const hDist = (innerR + rootR) / 2;
+              const hSize = Math.max((rootR - innerR) * 0.18, 2);
+              for (let i = 0; i < hCount; i++) {
+                const ha = (i / hCount) * Math.PI * 2;
+                c.beginPath();
+                c.arc(Math.cos(ha) * hDist, Math.sin(ha) * hDist, hSize, 0, Math.PI * 2);
+                c.fillStyle = 'rgba(250,251,252,0.55)';
+                c.fill();
+                c.strokeStyle = color.stroke;
+                c.lineWidth = 0.5;
+                c.stroke();
+              }
+            }
+          }
+ 
+          if (pitchRadius > 42) {
+            const sCount = Math.max(3, Math.min(7, Math.floor(numTeeth / 4.5)));
+            const innerR = pitchRadius * 0.50;
+            for (let i = 0; i < sCount; i++) {
+              const sa = (i / sCount) * Math.PI * 2;
+              c.beginPath();
+              c.moveTo(Math.cos(sa) * (holeR + 2), Math.sin(sa) * (holeR + 2));
+              c.lineTo(Math.cos(sa) * (innerR - 2), Math.sin(sa) * (innerR - 2));
+              c.strokeStyle = color.spoke;
+              c.lineWidth = Math.max(1.5, pitchRadius * 0.028);
+              c.stroke();
+            }
+          }
+ 
+          c.beginPath();
+          c.arc(0, 0, holeR, 0, Math.PI * 2);
+          c.fillStyle = 'rgba(250,251,252,0.90)';
+          c.fill();
+          c.strokeStyle = color.stroke;
+          c.lineWidth = 0.7;
+          c.stroke();
+ 
+          c.beginPath();
+          c.arc(0, 0, Math.max(1.2, pitchRadius * 0.04), 0, Math.PI * 2);
+          c.fillStyle = color.stroke;
+          c.fill();
+        }
+ 
+        function drawGear(gear, elapsed) {
+          const fade = Math.min(1, Math.max(0, (elapsed - gear.birth) / 900));
+          if (fade <= 0) return;
+ 
+          const { x, y, angle, texture, size } = gear;
+ 
+          const m = size / 2;
+          if (x + m < 0 || x - m > W || y + m < 0 || y - m > H) return;
+ 
+          ctx.save();
+          ctx.globalAlpha = fade;
+          ctx.translate(x, y);
+          ctx.rotate(angle);
+          ctx.drawImage(texture, -size / 2, -size / 2, size, size);
+          ctx.restore();
+        }
+ 
+        let lastTime = 0;
+ 
+        function animate(time) {
+          const dt = Math.min((time - lastTime) / 16.67, 3);
+          lastTime = time;
+          const elapsed = time - startTime;
+ 
+          ctx.clearRect(0, 0, W, H);
+ 
+          for (const g of gears) {
+            if (g.parentIdx === -1) {
+              g.angle += g.speed * g.dir * dt;
+            }
+          }
+ 
+          for (const g of gears) {
+            if (g.parentIdx >= 0) {
+              const p = gears[g.parentIdx];
+              const Np = p.numTeeth;
+              const Nc = g.numTeeth;
+              const alpha = g.contactAngle;
+              g.angle = -p.angle * (Np / Nc) + alpha * (1 + Np / Nc) + Math.PI - Math.PI / Nc;
+            }
+          }
+ 
+          for (const g of gears) {
+            drawGear(g, elapsed);
+          }
+ 
+          requestAnimationFrame(animate);
+        }
+ 
+        let resizeTimer;
+        window.addEventListener('resize', function () {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(resize, 200);
+        });
+ 
+        resize();
+        requestAnimationFrame(animate);
+ 
+        setTimeout(() => canvas.classList.add('visible'), 80);
+      })();
+    </script>
+  </body>
+</html>
