@@ -671,11 +671,11 @@
         font-size: 15px;
       }
  
-      /* before/after gallery */
+      /* before/after comparison gallery */
       .ba-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
+        gap: 28px;
       }
       .ba-card {
         background: #fff;
@@ -689,48 +689,120 @@
         transform: translateY(-5px);
         box-shadow: var(--shadow-lg);
       }
-      .ba-imgs {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2px;
-        background: var(--line);
-      }
-      .ba-imgs .shot {
+      .ba-compare {
+        --pos: 50;
         position: relative;
-        overflow: hidden;
         aspect-ratio: 4 / 3;
+        overflow: hidden;
+        background: var(--bg-soft-2);
+        cursor: ew-resize;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: pan-y;
       }
-      .ba-imgs img {
+      .ba-compare img {
+        position: absolute;
+        inset: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        display: block;
+        pointer-events: none;
+        -webkit-user-drag: none;
+        user-select: none;
       }
-      .ba-imgs .shot:hover img {
-        transform: scale(1.08);
+      /* base = «после» (right), overlay = «до» clipped to the left of the handle */
+      .ba-compare .ba-before {
+        z-index: 2;
+        clip-path: inset(0 calc((100 - var(--pos)) * 1%) 0 0);
       }
-      .ba-imgs .lbl {
+      .ba-lbl {
         position: absolute;
-        top: 10px;
-        left: 10px;
+        top: 12px;
+        z-index: 3;
         font-family: 'Manrope', sans-serif;
         font-weight: 800;
         font-size: 12px;
         letter-spacing: 0.08em;
         padding: 5px 11px;
         border-radius: 7px;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+      }
+      .ba-lbl-before {
+        left: 12px;
         background: rgba(255, 255, 255, 0.92);
         color: var(--graphite);
+        box-shadow: var(--shadow-sm);
       }
-      .ba-imgs .lbl.after {
+      .ba-lbl-after {
+        right: 12px;
         background: var(--green);
         color: #fff;
+      }
+      .ba-handle {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: calc(var(--pos) * 1%);
+        width: 46px;
+        transform: translateX(-50%);
+        z-index: 4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: ew-resize;
+        touch-action: none;
+        outline: none;
+      }
+      .ba-handle-line {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 2px;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: 0 0 0 1px rgba(16, 40, 28, 0.12);
+      }
+      .ba-handle-knob {
+        position: relative;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid var(--green);
+        color: var(--green);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1px;
+        box-shadow: var(--shadow-md);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .ba-handle-knob svg {
+        width: 13px;
+        height: 13px;
+      }
+      .ba-handle:hover .ba-handle-knob,
+      .ba-compare.dragging .ba-handle-knob,
+      .ba-handle:focus-visible .ba-handle-knob {
+        transform: scale(1.1);
+        box-shadow: var(--shadow-lg);
+      }
+      .ba-handle:focus-visible .ba-handle-knob {
+        outline: 3px solid var(--green-bright);
+        outline-offset: 3px;
+      }
+      .ba-compare.dragging {
+        cursor: ew-resize;
       }
       .ba-card .cap {
         padding: 18px 22px;
         font-family: 'Manrope', sans-serif;
         font-weight: 700;
         font-size: 16px;
+        line-height: 1.4;
       }
  
       /* CTA */
@@ -1240,7 +1312,7 @@
     <header id="header">
       <div class="wrap nav">
         <a href="#top" class="brand" aria-label="ООО САМРАУ">
-          <img src="images/logo-samrau.svg" alt="Логотип ООО САМРАУ" />
+          <img src="images/logo-samrau-wordmark.svg" alt="Логотип ООО САМРАУ" />
         </a>
         <nav class="nav-links">
           <a href="#top">О компании</a>
@@ -1335,7 +1407,6 @@
           </div>
           <div class="reveal d1">
             <div class="media" data-parallax="0.05">
-              <!-- Заменить на фото производственной площадки / завода -->
               <img src="images/proizvodstvennaya-baza.jpg" alt="Производственная база ООО САМРАУ" />
             </div>
             <div class="stat-row">
@@ -1415,7 +1486,6 @@
       <div class="wrap">
         <div class="split">
           <div class="media reveal" data-parallax="0.05">
-            <!-- Заменить на фото восстановленной стрелы / работ -->
             <img src="images/vosstanovlenie-strel.jpg" alt="Восстановление стрел подземных буровых машин" />
           </div>
           <div>
@@ -1466,7 +1536,6 @@
             </ul>
           </div>
           <div class="media reveal d1" data-parallax="0.05">
-            <!-- Заменить на фото комплектующих / производства деталей -->
             <img src="images/proizvodstvo-komplektuyushih.jpg" alt="Локальное производство комплектующих" />
           </div>
         </div>
@@ -1503,7 +1572,6 @@
             </div>
           </div>
           <div class="media reveal d1" data-parallax="0.05">
-            <!-- Заменить на фото гидроцилиндра -->
             <img src="images/remont-gidrocilindrov.jpg" alt="Ремонт гидроцилиндров" />
           </div>
         </div>
@@ -1515,7 +1583,6 @@
       <div class="wrap">
         <div class="split">
           <div class="media reveal" data-parallax="0.05">
-            <!-- Заменить на фото испытательного стенда / гидравлической установки -->
             <img src="images/ispytaniya-gidrocilindrov.jpg" alt="Испытания гидроцилиндров" />
           </div>
           <div>
@@ -1593,39 +1660,94 @@
         </div>
         <div class="ba-grid">
           <div class="ba-card reveal">
-            <div class="ba-imgs">
-              <div class="shot"><span class="lbl">ДО</span><img src="images/proekt-1-strela-sandvik-dd2711-do.svg" alt="До ремонта" /></div>
-              <div class="shot"><span class="lbl after">ПОСЛЕ</span><img src="images/proekt-1-strela-sandvik-dd2711-posle.svg" alt="После ремонта" /></div>
+            <div class="ba-compare" data-ba>
+              <img class="ba-after" src="images/proekt-1-strela-sandvik-dd2711-posle.jpg" alt="После ремонта: внутренний квадрат телескопической стрелы Sandvik DD2711" />
+              <img class="ba-before" src="images/proekt-1-strela-sandvik-dd2711-do.jpg" alt="До ремонта: внутренний квадрат телескопической стрелы Sandvik DD2711" />
+              <span class="ba-lbl ba-lbl-before">ДО</span>
+              <span class="ba-lbl ba-lbl-after">ПОСЛЕ</span>
+              <div class="ba-handle" role="slider" tabindex="0" aria-label="Сравнение до и после" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <span class="ba-handle-line"></span>
+                <span class="ba-handle-knob">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 7l-5 5 5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 7l5 5-5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
             </div>
             <div class="cap">Восстановление внутреннего квадрата телескопической стрелы Sandvik DD2711</div>
           </div>
           <div class="ba-card reveal d1">
-            <div class="ba-imgs">
-              <div class="shot"><span class="lbl">ДО</span><img src="images/proekt-2-strela-mashholding-df-b1-do.svg" alt="До ремонта" /></div>
-              <div class="shot"><span class="lbl after">ПОСЛЕ</span><img src="images/proekt-2-strela-mashholding-df-b1-posle.svg" alt="После ремонта" /></div>
+            <div class="ba-compare" data-ba>
+              <img class="ba-after" src="images/proekt-2-strela-mashholding-df-b1-posle.jpg" alt="После ремонта: внутренний квадрат телескопической стрелы Машхолдинг DF-B1" />
+              <img class="ba-before" src="images/proekt-2-strela-mashholding-df-b1-do.jpg" alt="До ремонта: внутренний квадрат телескопической стрелы Машхолдинг DF-B1" />
+              <span class="ba-lbl ba-lbl-before">ДО</span>
+              <span class="ba-lbl ba-lbl-after">ПОСЛЕ</span>
+              <div class="ba-handle" role="slider" tabindex="0" aria-label="Сравнение до и после" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <span class="ba-handle-line"></span>
+                <span class="ba-handle-knob">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 7l-5 5 5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 7l5 5-5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
             </div>
             <div class="cap">Восстановление внутреннего квадрата телескопической стрелы Машхолдинг DF-B1</div>
           </div>
           <div class="ba-card reveal">
-            <div class="ba-imgs">
-              <div class="shot"><span class="lbl">ДО</span><img src="images/proekt-3-podatchik-mashholding-df-b1-do.svg" alt="До ремонта" /></div>
-              <div class="shot"><span class="lbl after">ПОСЛЕ</span><img src="images/proekt-3-podatchik-mashholding-df-b1-posle.svg" alt="После ремонта" /></div>
+            <div class="ba-compare" data-ba>
+              <img class="ba-after" src="images/proekt-3-podatchik-mashholding-df-b1-posle.jpg" alt="После ремонта: узел наклона и поворота податчика бурового модуля Машхолдинг DF-B1" />
+              <img class="ba-before" src="images/proekt-3-podatchik-mashholding-df-b1-do.jpg" alt="До ремонта: узел наклона и поворота податчика бурового модуля Машхолдинг DF-B1" />
+              <span class="ba-lbl ba-lbl-before">ДО</span>
+              <span class="ba-lbl ba-lbl-after">ПОСЛЕ</span>
+              <div class="ba-handle" role="slider" tabindex="0" aria-label="Сравнение до и после" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <span class="ba-handle-line"></span>
+                <span class="ba-handle-knob">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 7l-5 5 5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 7l5 5-5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
             </div>
             <div class="cap">Восстановление узла наклона и поворота податчика бурового модуля Машхолдинг DF-B1</div>
           </div>
           <div class="ba-card reveal d1">
-            <div class="ba-imgs">
-              <div class="shot"><span class="lbl">ДО</span><img src="images/proekt-4-gidrocilindr-fambition-fl07-do.svg" alt="До ремонта" /></div>
-              <div class="shot"><span class="lbl after">ПОСЛЕ</span><img src="images/proekt-4-gidrocilindr-fambition-fl07-posle.svg" alt="После ремонта" /></div>
+            <div class="ba-compare" data-ba>
+              <img class="ba-after" src="images/proekt-4-gidrocilindr-fambition-fl07-posle.jpg" alt="После ремонта: гидроцилиндр подъёма стрелы Fambition FL07" />
+              <img class="ba-before" src="images/proekt-4-gidrocilindr-fambition-fl07-do.jpg" alt="До ремонта: гидроцилиндр подъёма стрелы Fambition FL07" />
+              <span class="ba-lbl ba-lbl-before">ДО</span>
+              <span class="ba-lbl ba-lbl-after">ПОСЛЕ</span>
+              <div class="ba-handle" role="slider" tabindex="0" aria-label="Сравнение до и после" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <span class="ba-handle-line"></span>
+                <span class="ba-handle-knob">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 7l-5 5 5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 7l5 5-5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
             </div>
             <div class="cap">Ремонт гидроцилиндра подъёма стрелы Fambition FL07</div>
           </div>
-          <div class="ba-card reveal" style="grid-column: 1 / -1; max-width: 620px; margin: 0 auto">
-            <div class="ba-imgs">
-              <div class="shot"><span class="lbl">ДО</span><img src="images/proekt-5-gidrocilindr-oprokid-fambition-fl07-do.svg" alt="До ремонта" /></div>
-              <div class="shot"><span class="lbl after">ПОСЛЕ</span><img src="images/proekt-5-gidrocilindr-oprokid-fambition-fl07-posle.svg" alt="После ремонта" /></div>
+          <div class="ba-card reveal">
+            <div class="ba-compare" data-ba>
+              <img class="ba-after" src="images/proekt-5-gidrocilindr-oprokid-fambition-fl07-posle.jpg" alt="После ремонта: гидроцилиндр опрокидывания Fambition FL07" />
+              <img class="ba-before" src="images/proekt-5-gidrocilindr-oprokid-fambition-fl07-do.jpg" alt="До ремонта: гидроцилиндр опрокидывания Fambition FL07" />
+              <span class="ba-lbl ba-lbl-before">ДО</span>
+              <span class="ba-lbl ba-lbl-after">ПОСЛЕ</span>
+              <div class="ba-handle" role="slider" tabindex="0" aria-label="Сравнение до и после" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <span class="ba-handle-line"></span>
+                <span class="ba-handle-knob">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 7l-5 5 5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 7l5 5-5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
             </div>
             <div class="cap">Ремонт гидроцилиндра опрокидывания Fambition FL07</div>
+          </div>
+          <div class="ba-card reveal d1">
+            <div class="ba-compare" data-ba>
+              <img class="ba-after" src="images/proekt-6-strela-vnesh-kvadrat-mashholding-df-b1-posle.jpg" alt="После ремонта: внешний квадрат телескопической стрелы Машхолдинг DF-B1" />
+              <img class="ba-before" src="images/proekt-6-strela-vnesh-kvadrat-mashholding-df-b1-do.jpg" alt="До ремонта: внешний квадрат телескопической стрелы Машхолдинг DF-B1" />
+              <span class="ba-lbl ba-lbl-before">ДО</span>
+              <span class="ba-lbl ba-lbl-after">ПОСЛЕ</span>
+              <div class="ba-handle" role="slider" tabindex="0" aria-label="Сравнение до и после" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <span class="ba-handle-line"></span>
+                <span class="ba-handle-knob">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 7l-5 5 5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 7l5 5-5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="cap">Восстановление внешнего квадрата телескопической стрелы Машхолдинг DF-B1</div>
           </div>
         </div>
         <div class="accent-line reveal" style="margin-top: 32px; max-width: 640px">
@@ -1687,7 +1809,7 @@
         <div class="foot-grid">
           <div class="foot-brand reveal">
             <div class="brand" style="margin-bottom: 4px">
-              <img src="images/logo-samrau.svg" alt="Логотип ООО САМРАУ" style="height: 34px; width: auto" />
+              <img src="images/logo-samrau-wordmark.svg" alt="Логотип ООО САМРАУ" style="height: 30px; width: auto" />
             </div>
             <p>
               Капитальный ремонт подземных буровых машин, восстановление стрел, ремонт
@@ -1813,6 +1935,54 @@
           runLoc();
         }
       }
+
+      // Before/after comparison sliders
+      document.querySelectorAll('.ba-compare[data-ba]').forEach((compare) => {
+        const handle = compare.querySelector('.ba-handle');
+        const clamp = (p) => Math.max(0, Math.min(100, p));
+        const apply = (p) => {
+          p = clamp(p);
+          compare.style.setProperty('--pos', p.toFixed(2));
+          if (handle) handle.setAttribute('aria-valuenow', Math.round(p));
+        };
+        const posFromX = (clientX) => {
+          const r = compare.getBoundingClientRect();
+          return ((clientX - r.left) / r.width) * 100;
+        };
+        let active = false;
+        const onDown = (e) => {
+          // touch: only start when grabbing the handle (keeps vertical scroll free)
+          if (e.pointerType !== 'mouse' && !(e.target.closest && e.target.closest('.ba-handle'))) return;
+          active = true;
+          compare.classList.add('dragging');
+          apply(posFromX(e.clientX));
+          try { compare.setPointerCapture(e.pointerId); } catch (_) {}
+          e.preventDefault();
+        };
+        const onMove = (e) => {
+          if (!active) return;
+          apply(posFromX(e.clientX));
+          e.preventDefault();
+        };
+        const onUp = () => {
+          active = false;
+          compare.classList.remove('dragging');
+        };
+        compare.addEventListener('pointerdown', onDown);
+        compare.addEventListener('pointermove', onMove);
+        compare.addEventListener('pointerup', onUp);
+        compare.addEventListener('pointercancel', onUp);
+        if (handle) {
+          handle.addEventListener('keydown', (e) => {
+            const cur = parseFloat(compare.style.getPropertyValue('--pos')) || 50;
+            if (e.key === 'ArrowLeft') { apply(cur - 2); e.preventDefault(); }
+            else if (e.key === 'ArrowRight') { apply(cur + 2); e.preventDefault(); }
+            else if (e.key === 'Home') { apply(0); e.preventDefault(); }
+            else if (e.key === 'End') { apply(100); e.preventDefault(); }
+          });
+        }
+        apply(50);
+      });
     </script>
  
     <!-- ============ ANIMATED GEAR BACKGROUND ============ -->
