@@ -604,7 +604,39 @@
         box-shadow: none;
       }
       .komplekt .split {
+        align-items: center;
+      }
+      #strely .split {
         align-items: start;
+      }
+      #strely .head-full {
+        max-width: none;
+      }
+      #gidro .split {
+        align-items: start;
+      }
+      #gidro .media {
+        margin-top: 56px;
+      }
+      #ispytaniya .split {
+        align-items: start;
+      }
+      #ispytaniya .media {
+        margin-top: 56px;
+      }
+      #proekty .section-head {
+        max-width: none;
+      }
+      #proekty .proekty-note {
+        white-space: nowrap;
+        font-size: clamp(12px, 1.5vw, 17px);
+      }
+      #preimush .section-head {
+        max-width: none;
+      }
+      #preimush .section-head p {
+        white-space: nowrap;
+        font-size: clamp(13px, 1.3vw, 16px);
       }
       .komplekt .section-head .sub,
       .komplekt .eyebrow {
@@ -1252,6 +1284,10 @@
  
       /* ---------- Responsive ---------- */
       @media (max-width: 1080px) {
+        #preimush .section-head p {
+          white-space: normal;
+          font-size: 15px;
+        }
         .nav-links {
           gap: 18px;
         }
@@ -1271,6 +1307,15 @@
         .split {
           grid-template-columns: 1fr;
           gap: 36px;
+        }
+        #strely .loc-card-col {
+          margin-top: 0;
+        }
+        #gidro .media {
+          margin-top: 0;
+        }
+        #ispytaniya .media {
+          margin-top: 0;
         }
         .hero {
           padding-top: 120px;
@@ -1295,6 +1340,10 @@
         .cards,
         .ba-grid {
           grid-template-columns: 1fr;
+        }
+        #proekty .proekty-note {
+          white-space: normal;
+          font-size: 15px;
         }
         .foot-grid {
           grid-template-columns: 1fr;
@@ -1423,30 +1472,34 @@
     <!-- ============ LOCALIZATION OF BOOMS ============ -->
     <section class="section bg-soft" id="strely">
       <div class="wrap">
-        <div class="section-head reveal">
+        <div class="section-head head-full reveal">
           <span class="eyebrow">Локализация</span>
           <h2>Локализация стрел Resemin Troidon 66 / Stellar Aton 66</h2>
-          <div class="sub">Первый этап проекта отечественной двустреловой проходческой машины</div>
-          <p>
-            В рамках проекта по разработке отечественной подземной проходческой машины ООО «САМРАУ»
-            выполнило реверс-инжиниринг и локализовало производство двух стрел в сборе для
-            Resemin Troidon 66 (Stellar Aton 66).
-          </p>
         </div>
         <div class="split">
-          <div class="reveal d1">
-            <div class="mini-title">Состав стрел</div>
-            <ul class="check-list">
-              <li>податчики и гидроцилиндры</li>
-              <li>переходные плиты и телескопические секции</li>
-              <li>узлы сопряжения и элементы крепления</li>
-              <li>изготовление на собственной производственной базе</li>
-            </ul>
-            <div class="accent-line">
-              Следующий этап — мелкосерийное производство стрел и ключевых компонентов.
+          <div>
+            <div class="section-head reveal d1" style="margin-bottom: 24px">
+              <div class="sub">Первый этап проекта отечественной двустреловой проходческой машины</div>
+              <p>
+                В рамках проекта по разработке отечественной подземной проходческой машины ООО «САМРАУ»
+                выполнило реверс-инжиниринг и локализовало производство двух стрел в сборе для
+                Resemin Troidon 66 (Stellar Aton 66).
+              </p>
+            </div>
+            <div class="reveal d1">
+              <div class="mini-title">Состав стрел</div>
+              <ul class="check-list">
+                <li>податчики и гидроцилиндры</li>
+                <li>переходные плиты и телескопические секции</li>
+                <li>узлы сопряжения и элементы крепления</li>
+                <li>изготовление на собственной производственной базе</li>
+              </ul>
+              <div class="accent-line">
+                Следующий этап — мелкосерийное производство стрел и ключевых компонентов.
+              </div>
             </div>
           </div>
-          <div class="reveal d1">
+          <div class="reveal d1 loc-card-col">
             <div class="loc-card" id="locCard">
               <span class="loc-scan" aria-hidden="true"></span>
               <div class="loc-row loc-top">
@@ -1515,25 +1568,27 @@
     <!-- ============ COMPONENTS (soft green) ============ -->
     <section class="section komplekt" id="komplekt">
       <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Производство</span>
-          <h2>Локальное производство комплектующих</h2>
-          <div class="sub">Комплектующие без зависимости от внешних поставок</div>
-          <p style="color: #1d3a29">
-            ООО «САМРАУ» изготавливает расходные и быстроизнашиваемые элементы для стрел подземных
-            буровых машин иностранного и отечественного производства. Собственная база позволяет
-            сокращать сроки поставки и выпускать детали под задачи ремонта.
-          </p>
-        </div>
         <div class="split">
-          <div class="glass reveal d1">
-            <div class="mini-title">Выполняемые работы</div>
-            <ul class="check-list">
-              <li>пальцы, втулки, направляющие и скользящие элементы</li>
-              <li>посадочные кольца и опорные элементы</li>
-              <li>ремонтные вставки и элементы телескопических секций</li>
-              <li>детали по образцу или чертежу</li>
-            </ul>
+          <div>
+            <div class="section-head reveal" style="margin-bottom: 24px">
+              <span class="eyebrow">Производство</span>
+              <h2>Локальное производство комплектующих</h2>
+              <div class="sub">Комплектующие без зависимости от внешних поставок</div>
+              <p style="color: #1d3a29">
+                ООО «САМРАУ» изготавливает расходные и быстроизнашиваемые элементы для стрел подземных
+                буровых машин иностранного и отечественного производства. Собственная база позволяет
+                сокращать сроки поставки и выпускать детали под задачи ремонта.
+              </p>
+            </div>
+            <div class="reveal d1">
+              <div class="mini-title">Выполняемые работы</div>
+              <ul class="check-list">
+                <li>пальцы, втулки, направляющие и скользящие элементы</li>
+                <li>посадочные кольца и опорные элементы</li>
+                <li>ремонтные вставки и элементы телескопических секций</li>
+                <li>детали по образцу или чертежу</li>
+              </ul>
+            </div>
           </div>
           <div class="media reveal d1" data-parallax="0.05">
             <img src="images/proizvodstvo-komplektuyushih.jpg" alt="Локальное производство комплектующих" />
@@ -1749,8 +1804,53 @@
             </div>
             <div class="cap">Восстановление внешнего квадрата телескопической стрелы Машхолдинг DF-B1</div>
           </div>
+          <div class="ba-card reveal">
+            <div class="ba-compare" data-ba>
+              <img class="ba-after" src="images/proekt-7-torcevoy-upor-kaishan-posle.jpg" alt="После ремонта: торцевой упор нижней балки податчика Kaishan" />
+              <img class="ba-before" src="images/proekt-7-torcevoy-upor-kaishan-do.jpg" alt="До ремонта: торцевой упор нижней балки податчика Kaishan" />
+              <span class="ba-lbl ba-lbl-before">ДО</span>
+              <span class="ba-lbl ba-lbl-after">ПОСЛЕ</span>
+              <div class="ba-handle" role="slider" tabindex="0" aria-label="Сравнение до и после" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <span class="ba-handle-line"></span>
+                <span class="ba-handle-knob">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 7l-5 5 5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 7l5 5-5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="cap">Восстановление торцевого упора нижней балки податчика Kaishan</div>
+          </div>
+          <div class="ba-card reveal d1">
+            <div class="ba-compare" data-ba>
+              <img class="ba-after" src="images/proekt-8-nizhnyaya-balka-kaishan-posle.jpg" alt="После ремонта: нижняя балка податчика Kaishan" />
+              <img class="ba-before" src="images/proekt-8-nizhnyaya-balka-kaishan-do.jpg" alt="До ремонта: нижняя балка податчика Kaishan" />
+              <span class="ba-lbl ba-lbl-before">ДО</span>
+              <span class="ba-lbl ba-lbl-after">ПОСЛЕ</span>
+              <div class="ba-handle" role="slider" tabindex="0" aria-label="Сравнение до и после" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <span class="ba-handle-line"></span>
+                <span class="ba-handle-knob">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 7l-5 5 5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 7l5 5-5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="cap">Восстановление нижней балки податчика Kaishan</div>
+          </div>
+          <div class="ba-card reveal">
+            <div class="ba-compare" data-ba>
+              <img class="ba-after" src="images/proekt-9-pnevmocilindry-posle.jpg" alt="После ремонта: комплект пневмоцилиндров" />
+              <img class="ba-before" src="images/proekt-9-pnevmocilindry-do.jpg" alt="До ремонта: комплект пневмоцилиндров" />
+              <span class="ba-lbl ba-lbl-before">ДО</span>
+              <span class="ba-lbl ba-lbl-after">ПОСЛЕ</span>
+              <div class="ba-handle" role="slider" tabindex="0" aria-label="Сравнение до и после" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <span class="ba-handle-line"></span>
+                <span class="ba-handle-knob">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 7l-5 5 5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 7l5 5-5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="cap">Восстановление комплекта пневмоцилиндров</div>
+          </div>
         </div>
-        <div class="accent-line reveal" style="margin-top: 32px; max-width: 640px">
+        <div class="accent-line reveal proekty-note" style="margin-top: 32px">
           Каждый восстановленный узел проходит контроль перед передачей заказчику.
         </div>
       </div>
@@ -1770,32 +1870,26 @@
         </div>
         <div class="cards">
           <div class="card reveal">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 20V8l5-3 5 3"/><path d="M14 20V11l6-3v12"/><path d="M9 20v-4h0"/></svg></div>
             <h3>Собственное производство</h3>
             <p>Изготавливаем и восстанавливаем узлы без привлечения внешних подрядчиков.</p>
           </div>
           <div class="card reveal d1">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10z"/></svg></div>
             <h3>Локализация производства</h3>
             <p>Локальное производство исключает длительное ожидание импортных деталей.</p>
           </div>
           <div class="card reveal d2">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
             <h3>Снижение стоимости</h3>
             <p>Отказ от международной логистики, таможенных платежей и дилерских наценок снижает итоговую стоимость работ.</p>
           </div>
           <div class="card reveal">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h2l2-7 4 14 3-9 2 4h7"/></svg></div>
             <h3>Инженерный контроль</h3>
             <p>Специалисты контролируют геометрию, материалы, сварку, механообработку, окраску и испытания.</p>
           </div>
           <div class="card reveal d1">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
             <h3>Гарантия</h3>
             <p>Обязательства с российской компанией упрощают коммуникацию и гарантийное обслуживание.</p>
           </div>
           <div class="card reveal d2">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg></div>
             <h3>Импортозамещение</h3>
             <p>Локализуем узлы и комплектующие для подземной буровой техники иностранного производства.</p>
           </div>
