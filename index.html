@@ -631,6 +631,18 @@
         white-space: nowrap;
         font-size: clamp(12px, 1.5vw, 17px);
       }
+      #sertifikaty .cert-wrap {
+        display: flex;
+        justify-content: center;
+      }
+      #sertifikaty .cert-img {
+        width: 100%;
+        max-width: 560px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+        display: block;
+      }
       #preimush .section-head {
         max-width: none;
       }
@@ -1887,6 +1899,28 @@
     </section>
  
     <!-- ============ ADVANTAGES ============ -->
+    <section class="section" id="sertifikaty">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Сертификаты</span>
+          <h2>Сертификаты и соответствие требованиям</h2>
+          <p>
+            ООО «САМРАУ» имеет сертификат соответствия на оказание услуг по ремонту машин
+            и оборудования, включая подземное оборудование и гидравлические компоненты.
+          </p>
+        </div>
+        <div class="cert-wrap reveal">
+          <img
+            class="cert-img"
+            src="images/sertifikat-sootvetstviya.jpg"
+            alt="Сертификат соответствия ООО «САМРАУ» на услуги по ремонту машин и оборудования"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ПРЕИМУЩЕСТВА ============ -->
     <section class="section" id="preimush">
       <div class="wrap">
         <div class="section-head reveal">
