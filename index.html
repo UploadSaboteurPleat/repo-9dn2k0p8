@@ -631,6 +631,21 @@
         white-space: nowrap;
         font-size: clamp(12px, 1.5vw, 17px);
       }
+      #sertifikaty .cert-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 28px;
+        flex-wrap: wrap;
+      }
+      #sertifikaty .cert-img {
+        width: 100%;
+        max-width: 480px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+        display: block;
+      }
       #preimush .section-head {
         max-width: none;
       }
@@ -1849,6 +1864,36 @@
             </div>
             <div class="cap">Восстановление комплекта пневмоцилиндров</div>
           </div>
+          <div class="ba-card reveal d1">
+            <div class="ba-compare" data-ba>
+              <img class="ba-after" src="images/proekt-10-kovsh-fambition-fl07-posle.jpg" alt="После ремонта: ковш ПДМ Fambition FL07" />
+              <img class="ba-before" src="images/proekt-10-kovsh-fambition-fl07-do.jpg" alt="До ремонта: ковш ПДМ Fambition FL07" />
+              <span class="ba-lbl ba-lbl-before">ДО</span>
+              <span class="ba-lbl ba-lbl-after">ПОСЛЕ</span>
+              <div class="ba-handle" role="slider" tabindex="0" aria-label="Сравнение до и после" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <span class="ba-handle-line"></span>
+                <span class="ba-handle-knob">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 7l-5 5 5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 7l5 5-5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="cap">Восстановление ковша ПДМ Fambition FL07</div>
+          </div>
+          <div class="ba-card reveal">
+            <div class="ba-compare" data-ba>
+              <img class="ba-after" src="images/proekt-11-torcevoy-upor-mashholding-df-b1-posle.jpg" alt="После ремонта: торцевой упор податчика Машхолдинг DF-B1" />
+              <img class="ba-before" src="images/proekt-11-torcevoy-upor-mashholding-df-b1-do.jpg" alt="До ремонта: торцевой упор податчика Машхолдинг DF-B1" />
+              <span class="ba-lbl ba-lbl-before">ДО</span>
+              <span class="ba-lbl ba-lbl-after">ПОСЛЕ</span>
+              <div class="ba-handle" role="slider" tabindex="0" aria-label="Сравнение до и после" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <span class="ba-handle-line"></span>
+                <span class="ba-handle-knob">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 7l-5 5 5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 7l5 5-5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="cap">Восстановление торцевого упора податчика Машхолдинг DF-B1</div>
+          </div>
         </div>
         <div class="accent-line reveal proekty-note" style="margin-top: 32px">
           Каждый восстановленный узел проходит контроль перед передачей заказчику.
@@ -1857,6 +1902,34 @@
     </section>
  
     <!-- ============ ADVANTAGES ============ -->
+    <section class="section" id="sertifikaty">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Сертификаты</span>
+          <h2>Сертификаты и соответствие требованиям</h2>
+          <p>
+            ООО «САМРАУ» имеет сертификат соответствия на оказание услуг по ремонту машин
+            и оборудования, включая подземное оборудование и гидравлические компоненты.
+          </p>
+        </div>
+        <div class="cert-wrap reveal">
+          <img
+            class="cert-img"
+            src="images/sertifikat-sootvetstviya.jpg"
+            alt="Сертификат соответствия ООО «САМРАУ» на услуги по ремонту машин и оборудования"
+            loading="lazy"
+          />
+          <img
+            class="cert-img"
+            src="images/deklaracia-sootvetstviya-eaes.jpg"
+            alt="Декларация о соответствии ЕАЭС ООО «САМРАУ» на гидроцилиндры двустороннего действия"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ПРЕИМУЩЕСТВА ============ -->
     <section class="section" id="preimush">
       <div class="wrap">
         <div class="section-head reveal">
