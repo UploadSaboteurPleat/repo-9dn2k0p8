@@ -634,10 +634,13 @@
       #sertifikaty .cert-wrap {
         display: flex;
         justify-content: center;
+        align-items: flex-start;
+        gap: 28px;
+        flex-wrap: wrap;
       }
       #sertifikaty .cert-img {
         width: 100%;
-        max-width: 560px;
+        max-width: 480px;
         border: 1px solid var(--line);
         border-radius: var(--radius);
         box-shadow: var(--shadow-sm);
@@ -1914,6 +1917,12 @@
             class="cert-img"
             src="images/sertifikat-sootvetstviya.jpg"
             alt="Сертификат соответствия ООО «САМРАУ» на услуги по ремонту машин и оборудования"
+            loading="lazy"
+          />
+          <img
+            class="cert-img"
+            src="images/deklaracia-sootvetstviya-eaes.jpg"
+            alt="Декларация о соответствии ЕАЭС ООО «САМРАУ» на гидроцилиндры двустороннего действия"
             loading="lazy"
           />
         </div>
